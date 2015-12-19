@@ -1,0 +1,11 @@
+{
+  "name": "angular2",
+  "version": "1.0.0",
+  "description": "test angular2 beta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alberto de la Fuente",
+  "license": "ISC"
+}
