@@ -2,9 +2,20 @@
     app.AppComponent = ng.core
         .Component({
             selector: 'my-app',
-            template: '<h1>My First Angular 2 App</h1>'
+            template: `
+            <h2>My name is {{ myName }}</h2>
+            <p>Names list: </p>
+            <ul>
+                <li *ngFor="#name of names">
+                {{ name }}
+                </li>
+            </ul>
+            `
         })
         .Class({
-            constructor: function() {}
+            constructor: function() {
+                this.myName = 'Alberto';
+                this.names = ['Pedro', 'Juan', 'María', 'Mario', 'Carlos'];
+            }
         });
 })(window.app || (window.app = {}));
