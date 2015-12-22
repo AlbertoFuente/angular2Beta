@@ -33,6 +33,5 @@
             changeMyName: function(n) {
                 this.myName = n;
             }
-
         });
-})(window.app || (window.app = {}));
+}(window.app || (window.app = {})));
