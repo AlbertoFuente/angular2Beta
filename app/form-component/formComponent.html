@@ -1,31 +1,60 @@
 <div class="container">
-    <!-- Form Title -->
-    <h2>{{ formTitle }}</h2>
-    <!-- Form -->
-    <form name="userForm">
+    <div [hidden]="submitControl">
+        <!-- Form Title -->
+        <h2>{{ formTitle }}</h2>
+        <!-- Form -->
+        <form name="userForm" (ngSubmit)="onSubmit()"  #userForm="ngForm">
+        <!-- USER NAME -->
+            <div class="form-group">
+                <label for="name">{{ titleName }}</label>
+                <input ng-model="user.name" (blur)="setData($event, 'name')" md-maxlength="30" name="name" type="text" class="form-control" ngControl="name" #name="ngForm" required>
+            </div>
+        <!-- USER SURNAME -->
+            <div class="form-group">
+                <label for="surname">{{ titleSurName }}</label>
+                <input ng-model="user.surname" (blur)="setData($event, 'surname')" name="surname" type="text" class="form-control" ngControl="surname" #surname="ngForm" required>
+            </div>
+        <!-- USER AGE -->
+            <div class="form-group">
+                <label for="age">{{ titleAge }}</label>
+                <input ng-model="user.age" (blur)="setData($event, 'age')" name="age" type="number" class="form-control" ngControl="age" #age="ngForm" required>
+            </div>
+        <!-- USER OCCUPATION -->
+            <div class="form-group">
+                <label for="occupation">{{ titleOccupation }}</label>
+                <select (change)="setOccupation($event)" name="occupation" class="form-control" required>
+                  <option *ngFor="#oc of occupation" [value]="oc">{{ oc }}</option>
+                </select>
+            </div>
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" class="btn btn-default" [disabled]="!userForm.form.valid">{{ submitButtonText }}</button>
+        </form>
+    </div>
+<!-- FINAL DATA -->
+    <div [hidden]="!submitControl">
+       <h2>{{ finalTitle }}</h2>
     <!-- USER NAME -->
-        <div class="form-group">
-            <label for="name">{{ titleName }}</label>
-            <input ng-model="user.name" md-maxlength="30" name="name" type="text" class="form-control" required>
-        </div>
+       <div class="row">
+         <div class="col-xs-3">{{ finalName }}</div>
+         <div class="col-xs-9  pull-left">{{ name }}</div>
+       </div>
     <!-- USER SURNAME -->
-        <div class="form-group">
-            <label for="surname">{{ titleSurName }}</label>
-            <input ng-model="user.surname" name="surname" type="text" class="form-control" required>
-        </div>
+       <div class="row">
+         <div class="col-xs-3">{{ finalSurname }}</div>
+         <div class="col-xs-9 pull-left">{{ surname }}</div>
+       </div>
     <!-- USER AGE -->
-        <div class="form-group">
-            <label for="age">{{ titleAge }}</label>
-            <input ng-model="user.age" name="age" type="number" class="form-control" required>
-        </div>
+       <div class="row">
+         <div class="col-xs-3">{{ finalAge }}</div>
+         <div class="col-xs-9 pull-left">{{ age }}</div>
+       </div>
     <!-- USER OCCUPATION -->
-        <div class="form-group">
-            <label for="occupation">{{ titleOccupation }}</label>
-            <select (change)="setOccupation($event)" name="occupation" class="form-control" required>
-              <option *ngFor="#oc of occupation" [value]="oc">{{ oc }}</option>
-            </select>
-        </div>
-    <!-- SUBMIT -->
-    <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+       <div class="row">
+         <div class="col-xs-3">{{ finalOccupation }}</div>
+         <div class="col-xs-9 pull-left">{{ userOccupation }}</div>
+       </div>
+       <br>
+    <!-- EDIT BUTTON -->
+       <button class="btn btn-default" (click)="submitControl=false">{{ editButtonText }}</button>
+     </div>
 </div>
