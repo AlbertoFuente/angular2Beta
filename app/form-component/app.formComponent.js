@@ -26,10 +26,10 @@
                 // user occupation
                 this.occupation = ['student', 'unemployed', 'employee', 'retired'];
                 // form user data
-                this.name = '';
-                this.surname = '';
-                this.age = '';
-                this.userOccupation = '';
+                this.name = null;
+                this.surname = null;
+                this.age = null;
+                this.userOccupation = null;
                 // submit Control
                 this.submitControl = false;
             },
