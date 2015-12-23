@@ -3,7 +3,7 @@
     app.FormComponent = ng.core
         .Component({
             selector: 'form-app',
-            templateUrl: '/app/form-component/formTemplate.html'
+            templateUrl: '/app/form-component/formComponent.html'
         })
         .Class({
             constructor: function() {
@@ -12,8 +12,9 @@
                 this.titleName = 'Insert Your Name';
                 this.titleSurName = 'Insert Your Surname';
                 this.titleAge = 'Insert Your Age';
+                this.titleOccupation = "Select your occupation";
                 // user occupation
-                this.occupation = ['student', 'employee', 'retired'];
+                this.occupation = ['student', 'unemployed', 'employee', 'retired'];
                 // form user data
                 this.name = userForm.name.value || 'empty';
                 this.surname = userForm.surname.value || 'empty';
