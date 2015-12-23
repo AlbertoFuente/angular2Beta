@@ -1,0 +1,36 @@
+<!-- Form Title -->
+<h2>{{ formTitle }}</h2>
+<!-- Form -->
+<form name="userForm">
+    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+    <!-- USER NAME -->
+        <md-input-container>
+            <label>{{ titleName }}</label>
+            <input ng-model="user.name" required md-maxlength="30" name="name">
+            <div ng-messages="userForm.name.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+            </div>
+        </md-input-container>
+    <!-- USER SURNAME -->
+        <md-input-container>
+            <label>{{ titleSurName }}</label>
+            <input ng-model="user.surname" required name="surname">
+            <div ng-messages="userForm.surName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+    <!-- USER AGE -->
+        <md-input-container>
+            <label>{{ titleAge }}</label>
+            <input ng-model="user.age" required name="age">
+            <div ng-messages="userForm.age.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+    <!-- USER OCCUPATION -->
+        <select (change)="setOccupation($event)">
+          <option *ngFor="#oc of occupation" [value]="oc">{{ oc }}</option>
+        </select>
+    </md-content>
+</form>
