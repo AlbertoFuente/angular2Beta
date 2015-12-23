@@ -1,0 +1,31 @@
+<div class="container">
+    <!-- Form Title -->
+    <h2>{{ formTitle }}</h2>
+    <!-- Form -->
+    <form name="userForm">
+    <!-- USER NAME -->
+        <div class="form-group">
+            <label for="name">{{ titleName }}</label>
+            <input ng-model="user.name" md-maxlength="30" name="name" type="text" class="form-control" required>
+        </div>
+    <!-- USER SURNAME -->
+        <div class="form-group">
+            <label for="surname">{{ titleSurName }}</label>
+            <input ng-model="user.surname" name="surname" type="text" class="form-control" required>
+        </div>
+    <!-- USER AGE -->
+        <div class="form-group">
+            <label for="age">{{ titleAge }}</label>
+            <input ng-model="user.age" name="age" type="number" class="form-control" required>
+        </div>
+    <!-- USER OCCUPATION -->
+        <div class="form-group">
+            <label for="occupation">{{ titleOccupation }}</label>
+            <select (change)="setOccupation($event)" name="occupation" class="form-control" required>
+              <option *ngFor="#oc of occupation" [value]="oc">{{ oc }}</option>
+            </select>
+        </div>
+    <!-- SUBMIT -->
+    <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
