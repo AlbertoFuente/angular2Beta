@@ -21,9 +21,9 @@
             </div>
         <!-- USER OCCUPATION -->
             <div class="form-group">
-                <label for="occupation">{{ titleOccupation }}</label>
-                <select (change)="setOccupation($event)" name="occupation" class="form-control" required>
-                  <option *ngFor="#oc of occupation" [value]="oc">{{ oc }}</option>
+                <label for="occupationList">{{ titleOccupation }}</label>
+                <select (change)="setData($event, 'occupation')" name="occupationList" class="form-control" required>
+                  <option *ngFor="#oc of occupationList" [value]="oc">{{ oc }}</option>
                 </select>
             </div>
         <!-- SUBMIT BUTTON -->
@@ -51,7 +51,7 @@
     <!-- USER OCCUPATION -->
        <div class="row">
          <div class="col-xs-3">{{ finalOccupation }}</div>
-         <div class="col-xs-9 pull-left">{{ userOccupation }}</div>
+         <div class="col-xs-9 pull-left">{{ occupation }}</div>
        </div>
        <br>
     <!-- EDIT BUTTON -->
