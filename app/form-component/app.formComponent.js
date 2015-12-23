@@ -24,20 +24,17 @@
                 this.finalOccupation = 'Occupation';
                 this.editButtonText = 'Edit';
                 // user occupation
-                this.occupation = ['student', 'unemployed', 'employee', 'retired'];
+                this.occupationList = ['student', 'unemployed', 'employee', 'retired'];
                 // form user data
                 this.name = null;
                 this.surname = null;
                 this.age = null;
-                this.userOccupation = null;
+                this.occupation = null;
                 // submit Control
                 this.submitControl = false;
             },
             setData: function(e, input) {
                 this[input] = e.target.value;
-            },
-            setOccupation: function(e) {
-                this.userOccupation = e.target.value;
             },
             onSubmit: function() {
                 this.submitControl = true;
