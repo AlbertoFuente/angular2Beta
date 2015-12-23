@@ -7,17 +7,17 @@
         <!-- USER NAME -->
             <div class="form-group">
                 <label for="name">{{ titleName }}</label>
-                <input ng-model="user.name" (blur)="setData($event, 'name')" md-maxlength="30" name="name" type="text" class="form-control" ngControl="name" #name="ngForm" required>
+                <input ng-model="name" (blur)="setData($event, 'name')" md-maxlength="30" name="name" type="text" class="form-control" ngControl="name" required>
             </div>
         <!-- USER SURNAME -->
             <div class="form-group">
                 <label for="surname">{{ titleSurName }}</label>
-                <input ng-model="user.surname" (blur)="setData($event, 'surname')" name="surname" type="text" class="form-control" ngControl="surname" #surname="ngForm" required>
+                <input ng-model="surname" (blur)="setData($event, 'surname')" name="surname" type="text" class="form-control" ngControl="surname" required>
             </div>
         <!-- USER AGE -->
             <div class="form-group">
                 <label for="age">{{ titleAge }}</label>
-                <input ng-model="user.age" (blur)="setData($event, 'age')" name="age" type="number" class="form-control" ngControl="age" #age="ngForm" required>
+                <input ng-model="age" (blur)="setData($event, 'age')" name="age" type="number" class="form-control" ngControl="age" required>
             </div>
         <!-- USER OCCUPATION -->
             <div class="form-group">
