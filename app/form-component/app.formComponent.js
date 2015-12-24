@@ -16,7 +16,7 @@
                 this.titleAge = 'Insert Your Age';
                 this.titleOccupation = "Select your occupation";
                 this.submitButtonText = 'Submit';
-                // final data
+                // final data labels
                 this.finalTitle = 'You submitted the following:';
                 this.finalName = 'Name';
                 this.finalSurname = 'Surname';
