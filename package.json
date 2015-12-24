@@ -13,7 +13,17 @@
     "zone.js": "^0.5.10"
   },
   "devDependencies": {
-    "lite-server": "^1.3.1"
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "jasmine-sinon": "^0.4.0",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-sinon": "^1.0.4",
+    "karma-spec-reporter": "0.0.23",
+    "lite-server": "^1.3.1",
+    "sinon": "^1.17.2"
   },
   "scripts": {
     "start": "npm run lite",
