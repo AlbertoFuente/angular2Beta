@@ -244,5 +244,14 @@
             expect(this.app.namesListComponent.insertName.calledOnce);
             expect(this.app.namesListComponent.names).toEqual(mockNames);
         });
+
+        it('Test app.NamesListComponent.removeElement', function() {
+            sinon.spy(this.app.namesListComponent, 'removeElement');
+            var mockNames = ['Pedro', 'Juan', 'Sandra', 'Pablo'];
+
+            this.app.namesListComponent.removeElement('Laura');
+            expect(this.app.namesListComponent.removeElement.calledOnce);
+            expect(this.app.namesListComponent.names).toEqual(mockNames);
+        });
     });
 }());
