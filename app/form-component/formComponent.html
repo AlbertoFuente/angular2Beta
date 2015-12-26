@@ -1,5 +1,5 @@
-<div class="container">
-    <div [hidden]="submitControl">
+<div class="container" *ngIf="_showForm">
+    <div [hidden]="_submitControl">
         <!-- Form Title -->
         <h2>{{ formTitle }}</h2>
         <!-- Form -->
@@ -31,7 +31,7 @@
         </form>
     </div>
 <!-- FINAL DATA -->
-    <div [hidden]="!submitControl">
+    <div [hidden]="!_submitControl">
        <h2>{{ finalTitle }}</h2>
     <!-- USER NAME -->
        <div class="row">
@@ -55,6 +55,6 @@
        </div>
        <br>
     <!-- EDIT BUTTON -->
-       <button class="btn btn-default" (click)="submitControl=false">{{ editButtonText }}</button>
+       <button class="btn btn-default" (click)="_submitControl=false">{{ editButtonText }}</button>
      </div>
 </div>
