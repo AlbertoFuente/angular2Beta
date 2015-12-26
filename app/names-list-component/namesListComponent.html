@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="_showNamesList">
     <h2>{{ namesListTitle }}</h2>
     <ul>
         <li *ngFor="#name of names" (click)="removeElement(name)">{{ name }}</li>
