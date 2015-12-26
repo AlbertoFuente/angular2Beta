@@ -8,6 +8,8 @@
         })
         .Class({
             constructor: function() {
+                // Show form
+                this._showForm = true;
                 // form title
                 this.formTitle = 'Insert your Personal Data';
                 // form labels
@@ -31,13 +33,13 @@
                 this.age = null;
                 this.occupation = null;
                 // submit Control
-                this.submitControl = false;
+                this._submitControl = false;
             },
             setData: function(e, input) {
                 this[input] = e.target.value;
             },
             onSubmit: function() {
-                this.submitControl = true;
+                this._submitControl = true;
             }
         });
 }(window.app || (window.app = {})));
