@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+  <li role="presentation" id="tabForm" [ngClass]="{active: _isActive}" (click)="toggleTab()">
+      <a href="#">{{ formText }}</a>
+  </li>
+  <li role="presentation" id="tabNames" [ngClass]="{active: !_isActive}" (click)="toggleTab()">
+      <a href="#">{{ namesListText }}</a>
+  </li>
+</ul>
