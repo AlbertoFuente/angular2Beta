@@ -17,6 +17,9 @@
             },
             insertName: function(name) {
                 this.names.push(name);
+            },
+            removeElement: function(name) {
+                this.names.shift(name);
             }
         });
 }(window.app || (window.app = {})));
