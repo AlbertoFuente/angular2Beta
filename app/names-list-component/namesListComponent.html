@@ -1,7 +1,7 @@
 <div class="container">
     <h2>{{ namesListTitle }}</h2>
     <ul>
-        <li *ngFor="#name of names">{{ name }}</li>
+        <li *ngFor="#name of names" (click)="removeElement(name)">{{ name }}</li>
     </ul>
     <input #nameText>
     <button (click)="insertName(nameText.value)">{{ addNameButton }}</button>
