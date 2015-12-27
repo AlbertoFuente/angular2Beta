@@ -18,10 +18,21 @@
                 // active tab
                 this._isActive = true;
             },
-            toggleTab: function() {
+            toggleTab: function(num) {
                 this._isActive = !this._isActive;
-                this.formComponent._showForm = !this.formComponent._showForm;
-                this.namesListComponent._showNamesList = !this.namesListComponent._showNamesList;
+
+                let formApp = document.querySelector('my-app'),
+                    namesApp = document.querySelector('my-app2');
+                switch (num) {
+                    case 1:
+                        formApp.style.display = 'block';
+                        namesApp.style.display = 'none';
+                        break;
+                    case 2:
+                        formApp.style.display = 'none';
+                        namesApp.style.display = 'block';
+                        break;
+                }
             }
         });
 }(window.app || (window.app = {})));
