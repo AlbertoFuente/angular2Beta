@@ -8,8 +8,6 @@
         })
         .Class({
             constructor: function() {
-                // show names list
-                this._showNamesList = false;
                 // name list title
                 this.namesListTitle = 'Names List';
                 // names list
