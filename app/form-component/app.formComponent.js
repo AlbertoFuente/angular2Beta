@@ -8,8 +8,6 @@
         })
         .Class({
             constructor: function() {
-                // Show form
-                this._showForm = true;
                 // form title
                 this.formTitle = 'Insert your Personal Data';
                 // form labels
