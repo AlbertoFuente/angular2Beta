@@ -11,10 +11,6 @@
                 // tabs texts
                 this.formText = 'Form Data';
                 this.namesListText = 'Names List';
-                // app.FormComponent
-                this.formComponent = new app.FormComponent();
-                // app.NamesListComponent
-                this.namesListComponent = new app.NamesListComponent();
                 // active tab
                 this._isActive = true;
             },
@@ -22,16 +18,21 @@
                 this._isActive = !this._isActive;
 
                 let formApp = document.querySelector('my-app'),
-                    namesApp = document.querySelector('my-app2');
-                switch (num) {
-                    case 1:
-                        formApp.style.display = 'block';
-                        namesApp.style.display = 'none';
-                        break;
-                    case 2:
-                        formApp.style.display = 'none';
-                        namesApp.style.display = 'block';
-                        break;
+                    namesApp = document.querySelector('my-app2'),
+                    tabObj = {
+                        1: function() {
+                            formApp.style.display = 'block';
+                            namesApp.style.display = 'none';
+                        },
+                        2: function() {
+                            formApp.style.display = 'none';
+                            namesApp.style.display = 'block';
+                        }
+                    }
+                if (num) {
+                    tabObj[num]();
+                } else {
+                    tabObj[1]();
                 }
             }
         });
