@@ -19,12 +19,7 @@
                 return this.names.findIndex(x => x.toLowerCase() === name.toLowerCase());
             },
             insertName: function(name) {
-                let _name = this.checkName(name);
-                if (_name < 0) {
-                    this.names.push(name);
-                } else {
-                    return false;
-                }
+                return (this.checkName(name) < 0) ? this.names.push(name) : false;
             },
             removeElement: function(name) {
                 this.names.shift(name);
