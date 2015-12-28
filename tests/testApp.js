@@ -5,10 +5,12 @@
         beforeEach(function() {
             this.server = sinon.fakeServer.create();
             this.app = {
-                appComponent: new app.AppComponent(),
+                appComponent1: new app.AppComponent1(),
                 appComponent2: new app.AppComponent2(),
+                appComponent3: new app.AppComponent3(),
                 appFormComponent: new app.FormComponent(),
-                namesListComponent: new app.NamesListComponent()
+                namesListComponent: new app.NamesListComponent(),
+                tabsComponent: new app.TabsComponent()
             };
             this.body = window.document.body;
         });
@@ -24,21 +26,26 @@
 
         it('Test window.app', function() {
             expect(typeof window.app).toBe('object');
-            expect(Object.keys(window.app).length).toBe(4);
+            expect(Object.keys(window.app).length).toBe(6);
         });
 
         /**
          * Classes
          */
 
-        it('Test app.AppComponent Class', function() {
-            expect(typeof this.app.appComponent).toBe('object');
-            expect(Object.keys(this.app.appComponent).length).toBe(0);
+        it('Test app.AppComponent1 Class', function() {
+            expect(typeof this.app.appComponent1).toBe('object');
+            expect(Object.keys(this.app.appComponent1).length).toBe(0);
         });
 
         it('Test app.AppComponent2 Class', function() {
             expect(typeof this.app.appComponent2).toBe('object');
             expect(Object.keys(this.app.appComponent2).length).toBe(0);
+        });
+
+        it('Test app.AppComponent3 Class', function() {
+            expect(typeof this.app.appComponent3).toBe('object');
+            expect(Object.keys(this.app.appComponent3).length).toBe(0);
         });
 
         it('Test app.FormComponent Class', function() {
@@ -177,10 +184,10 @@
          * submit control
          */
 
-        it('Test app.FormComponent.submitControl', function() {
-            // submitControl
-            expect(typeof this.app.appFormComponent.submitControl).toBe('boolean');
-            expect(this.app.appFormComponent.submitControl).toBe(false);
+        it('Test app.FormComponent._submitControl', function() {
+            // _submitControl
+            expect(typeof this.app.appFormComponent._submitControl).toBe('boolean');
+            expect(this.app.appFormComponent._submitControl).toBe(false);
         });
 
         /**
@@ -192,8 +199,8 @@
             // onSubmit
             this.app.appFormComponent.onSubmit();
             expect(this.app.appFormComponent.onSubmit.calledOnce);
-            expect(typeof this.app.appFormComponent.submitControl).toBe('boolean');
-            expect(this.app.appFormComponent.submitControl).toBe(true);
+            expect(typeof this.app.appFormComponent._submitControl).toBe('boolean');
+            expect(this.app.appFormComponent._submitControl).toBe(true);
         });
 
         /**
@@ -252,6 +259,66 @@
             this.app.namesListComponent.removeElement('Laura');
             expect(this.app.namesListComponent.removeElement.calledOnce);
             expect(this.app.namesListComponent.names).toEqual(mockNames);
+        });
+
+        /**
+         * app.TabsComponent
+         */
+
+        it('Test app.TabsComponent.formText', function() {
+            expect(typeof this.app.tabsComponent.formText).toBe('string');
+            expect(this.app.tabsComponent.formText).toBe('Form Data');
+        });
+
+        it('Test app.TabsComponent.namesListText', function() {
+            expect(typeof this.app.tabsComponent.namesListText).toBe('string');
+            expect(this.app.tabsComponent.namesListText).toBe('Names List');
+        });
+
+        /**
+         * active tab
+         */
+
+        it('Test app.TabsComponent._isActive', function() {
+            expect(typeof this.app.tabsComponent._isActive).toBe('boolean');
+            expect(this.app.tabsComponent._isActive).toBe(true);
+        });
+
+        /**
+         * toggleTab
+         */
+
+        it('Test app.TabsComponent.toggleTab', function() {
+            sinon.spy(this.app.tabsComponent, 'toggleTab');
+
+            var formApp = document.createElement('my-app'),
+                namesApp = document.createElement('my-app2');
+
+            try {
+                this.body.appendChild(formApp);
+                this.body.appendChild(namesApp);
+            } catch (err) {
+                console.log(err);
+            } finally {
+                // tab empty
+                this.app.tabsComponent.toggleTab();
+                expect(this.app.tabsComponent.toggleTab.calledOnce);
+                expect(this.app.tabsComponent._isActive).toBe(false);
+                expect(namesApp.style.display).toBe('none');
+                expect(formApp.style.display).toBe('block');
+                // tab 1
+                this.app.tabsComponent.toggleTab(1);
+                expect(this.app.tabsComponent.toggleTab.calledTwice);
+                expect(this.app.tabsComponent._isActive).toBe(true);
+                expect(namesApp.style.display).toBe('none');
+                expect(formApp.style.display).toBe('block');
+                // tab 2
+                this.app.tabsComponent.toggleTab(2);
+                expect(this.app.tabsComponent.toggleTab.calledThrice);
+                expect(this.app.tabsComponent._isActive).toBe(false);
+                expect(namesApp.style.display).toBe('block');
+                expect(formApp.style.display).toBe('none');
+            }
         });
     });
 }());
