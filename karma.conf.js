@@ -19,9 +19,12 @@ module.exports = function(config) {
             'node_modules/angular2/bundles/angular2-polyfills.js',
             'node_modules/rxjs/bundles/Rx.umd.js',
             'node_modules/angular2/bundles/angular2-all.umd.js',
+            'app/form-component/app.component.js',
             'app/form-component/app.formComponent.js',
+            'app/names-list-component/app.component.js',
             'app/names-list-component/app.namesListComponent.js',
-            'app/app.component.js',
+            'app/tabs-component/app.component.js',
+            'app/tabs-component/app.tabsComponent.js',
             'app/boot.js'
         ],
 
@@ -33,9 +36,12 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'app/app.component.js': ['coverage'],
+            'app/form-component/app.component.js': ['coverage'],
             'app/form-component/app.formComponent.js': ['coverage'],
-            'app/names-list-component/app.namesListComponent.js': ['coverage']
+            'app/names-list-component/app.component.js': ['coverage'],
+            'app/names-list-component/app.namesListComponent.js': ['coverage'],
+            'app/tabs-component/app.component.js': ['coverage'],
+            'app/tabs-component/app.tabsComponent.js': ['coverage']
         },
 
 
