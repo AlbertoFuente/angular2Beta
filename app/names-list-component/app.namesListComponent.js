@@ -15,8 +15,16 @@
                 // button text
                 this.addNameButton = 'Add Name';
             },
+            checkName: function(name) {
+                return this.names.findIndex(x => x.toLowerCase() === name.toLowerCase());
+            },
             insertName: function(name) {
-                this.names.push(name);
+                let _name = this.checkName(name);
+                if (_name < 0) {
+                    this.names.push(name);
+                } else {
+                    return false;
+                }
             },
             removeElement: function(name) {
                 this.names.shift(name);
