@@ -245,10 +245,22 @@
 
         it('Test app.NamesListComponent.insertName', function() {
             sinon.spy(this.app.namesListComponent, 'insertName');
+            sinon.spy(this.app.namesListComponent, 'checkName');
             var mockNames = ['Laura', 'Pedro', 'Juan', 'Sandra', 'Pablo', 'Ivan'];
-
+            // new name
             this.app.namesListComponent.insertName('Ivan');
             expect(this.app.namesListComponent.insertName.calledOnce);
+            expect(this.app.namesListComponent.checkName.calledOnce);
+            expect(this.app.namesListComponent.names).toEqual(mockNames);
+            // existing name with a capital
+            this.app.namesListComponent.insertName('Pablo');
+            expect(this.app.namesListComponent.insertName.calledTwice);
+            expect(this.app.namesListComponent.checkName.calledTwice);
+            expect(this.app.namesListComponent.names).toEqual(mockNames);
+            // existing name with lowercase
+            this.app.namesListComponent.insertName('pablo');
+            expect(this.app.namesListComponent.insertName.calledThrice);
+            expect(this.app.namesListComponent.checkName.calledThrice);
             expect(this.app.namesListComponent.names).toEqual(mockNames);
         });
 
