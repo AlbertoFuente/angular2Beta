@@ -262,6 +262,9 @@
             expect(this.app.namesListComponent.insertName.calledThrice);
             expect(this.app.namesListComponent.checkName.calledThrice);
             expect(this.app.namesListComponent.names).toEqual(mockNames);
+            // empty name
+            this.app.namesListComponent.insertName('');
+            expect(this.app.namesListComponent.names).toEqual(mockNames);
         });
 
         it('Test app.NamesListComponent.removeElement', function() {
@@ -271,6 +274,22 @@
             this.app.namesListComponent.removeElement('Laura');
             expect(this.app.namesListComponent.removeElement.calledOnce);
             expect(this.app.namesListComponent.names).toEqual(mockNames);
+        });
+
+        it('Test app.NamesListComponent.enterKey', function() {
+            sinon.spy(this.app.namesListComponent, 'enterKey');
+            var mockNames = ['Laura', 'Pedro', 'Juan', 'Sandra', 'Pablo', 'Eva'],
+                mockObj = {
+                    which: 13,
+                    target: {
+                        value: 'Eva'
+                    }
+                };
+
+            this.app.namesListComponent.enterKey(mockObj);
+            expect(this.app.namesListComponent.enterKey.calledOnce);
+            expect(this.app.namesListComponent.names).toEqual(mockNames);
+            expect(mockObj.target.value).toBe(null);
         });
 
         /**
