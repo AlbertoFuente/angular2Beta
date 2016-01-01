@@ -3,6 +3,6 @@
     <ul>
         <li *ngFor="#name of names" (click)="removeElement(name)">{{ name }}</li>
     </ul>
-    <input #nameText>
+    <input #nameText (keyup)="enterKey($event)">
     <button (click)="insertName(nameText.value)">{{ addNameButton }}</button>
 </div>
