@@ -11,5 +11,5 @@ npm install
 ```
 - To see examples all you have to do is:
 ```
-npm run lite
+npm start
 ```
