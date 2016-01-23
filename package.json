@@ -14,6 +14,7 @@
     },
     "devDependencies": {
         "concurrently": "^1.0.0",
+        "http-server": "^0.8.5",
         "jasmine": "^2.4.1",
         "jasmine-core": "^2.4.1",
         "jasmine-sinon": "^0.4.0",
@@ -27,9 +28,9 @@
         "sinon": "^1.17.2"
     },
     "scripts": {
-        "test": "karma start",
-        "lite": "lite-server",
-        "start": "concurrent \"npm run lite\" \"npm run test\""
+        "lite": "lite-server --port 3000",
+        "coverage": "http-server -c-1 -o -p 4000 ./coverage/*",
+        "start": "concurrent \"npm run coverage\" \"npm run lite\""
     },
     "author": "Alberto de la Fuente",
     "license": "ISC"
