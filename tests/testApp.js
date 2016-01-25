@@ -335,20 +335,20 @@
                 this.app.tabsComponent.toggleTab();
                 expect(this.app.tabsComponent.toggleTab.calledOnce);
                 expect(this.app.tabsComponent._isActive).toBe(false);
-                expect(namesApp.style.display).toBe('none');
-                expect(formApp.style.display).toBe('block');
+                expect(namesApp.className).toBe('hideApp');
+                expect(formApp.className).toBe('showApp');
                 // tab 1
                 this.app.tabsComponent.toggleTab(1);
                 expect(this.app.tabsComponent.toggleTab.calledTwice);
                 expect(this.app.tabsComponent._isActive).toBe(true);
-                expect(namesApp.style.display).toBe('none');
-                expect(formApp.style.display).toBe('block');
+                expect(namesApp.className).toBe('hideApp');
+                expect(formApp.className).toBe('showApp');
                 // tab 2
                 this.app.tabsComponent.toggleTab(2);
                 expect(this.app.tabsComponent.toggleTab.calledThrice);
                 expect(this.app.tabsComponent._isActive).toBe(false);
-                expect(namesApp.style.display).toBe('block');
-                expect(formApp.style.display).toBe('none');
+                expect(namesApp.className).toBe('showApp');
+                expect(formApp.className).toBe('hideApp');
             }
         });
     });
