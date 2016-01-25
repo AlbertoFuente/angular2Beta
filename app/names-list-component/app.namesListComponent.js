@@ -22,12 +22,16 @@
                 return (this.checkName(name) < 0 && name !== '') ? this.names[this.names.length] = name : false;
             },
             removeElement: function(name) {
-                this.names.shift(name);
+                this.names.find((x, i) => {
+                    if (x === name) {
+                        this.names.splice(i, 1);
+                    }
+                });
             },
-            enterKey: function($event) {
-                if ($event.which === 13) {
-                    this.insertName($event.target.value);
-                    $event.target.value = null;
+            enterKey: function(e) {
+                if (e.which === 13) {
+                    this.insertName(e.target.value);
+                    e.target.value = null;
                 }
             }
         });
