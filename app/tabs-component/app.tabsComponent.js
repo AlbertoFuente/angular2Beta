@@ -20,13 +20,13 @@
                 let formApp = document.querySelector('my-app'),
                     namesApp = document.querySelector('my-app2'),
                     tabObj = {
-                        1: function() {
-                            formApp.style.display = 'block';
-                            namesApp.style.display = 'none';
+                        1: () => {
+                            formApp.className = 'showApp';
+                            namesApp.className = 'hideApp';
                         },
-                        2: function() {
-                            formApp.style.display = 'none';
-                            namesApp.style.display = 'block';
+                        2: () => {
+                            formApp.className = 'hideApp';
+                            namesApp.className = 'showApp';
                         }
                     }
                 if (num) {
