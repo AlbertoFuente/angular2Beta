@@ -274,6 +274,10 @@
             this.app.namesListComponent.removeElement('Laura');
             expect(this.app.namesListComponent.removeElement.calledOnce);
             expect(this.app.namesListComponent.names).toEqual(mockNames);
+
+            this.app.namesListComponent.removeElement('Luis');
+            expect(this.app.namesListComponent.removeElement.calledTwice);
+            expect(this.app.namesListComponent.names).toEqual(this.app.namesListComponent.names);
         });
 
         it('Test app.NamesListComponent.enterKey', function() {
