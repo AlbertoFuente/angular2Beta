@@ -3,6 +3,7 @@
     <title>Angular 2 QuickStart</title>
 </head>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <!-- 1. Load libraries -->
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.umd.js"></script>
@@ -19,7 +20,7 @@
   <!-- 3. Display the application -->
   <body>
     <tabs-app></tabs-app>
-    <my-app>Loading...</my-app>
-    <my-app2 style="display: none">Loading...</my-app2>
+    <my-app class="showApp">Loading...</my-app>
+    <my-app2 class="hideApp">Loading...</my-app2>
   </body>
 </html>
