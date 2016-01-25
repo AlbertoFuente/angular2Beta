@@ -22,11 +22,7 @@
                 return (this.checkName(name) < 0 && name !== '') ? this.names[this.names.length] = name : false;
             },
             removeElement: function(name) {
-                this.names.find((x, i) => {
-                    if (x === name) {
-                        this.names.splice(i, 1);
-                    }
-                });
+                this.names.find((x, i) => (x === name) ? this.names.splice(i, 1) : false);
             },
             enterKey: function(e) {
                 if (e.which === 13) {
