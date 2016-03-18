@@ -1,37 +1,38 @@
 {
-    "name": "angular2beta",
-    "version": "1.0.0",
-    "description": "test Angular 2 Beta",
-    "dependencies": {
-        "angular2": "^2.0.0-beta.0",
-        "bootstrap": "^3.3.6",
-        "es6-promise": "^3.0.2",
-        "es6-shim": "^0.34.0",
-        "reflect-metadata": "^0.1.2",
-        "rxjs": "^5.0.0-beta.0",
-        "systemjs": "^0.19.9",
-        "zone.js": "^0.5.10"
-    },
-    "devDependencies": {
-        "concurrently": "^1.0.0",
-        "http-server": "^0.8.5",
-        "jasmine": "^2.4.1",
-        "jasmine-core": "^2.4.1",
-        "jasmine-sinon": "^0.4.0",
-        "karma": "^0.13.15",
-        "karma-chrome-launcher": "^0.2.2",
-        "karma-coverage": "^0.5.3",
-        "karma-jasmine": "^0.3.6",
-        "karma-sinon": "^1.0.4",
-        "karma-spec-reporter": "0.0.23",
-        "lite-server": "^1.3.1",
-        "sinon": "^1.17.2"
-    },
-    "scripts": {
-        "lite": "lite-server --port 3000",
-        "coverage": "http-server -c-1 -o -p 4000 ./coverage/*",
-        "start": "concurrent \"npm run coverage\" \"npm run lite\""
-    },
-    "author": "Alberto de la Fuente",
-    "license": "ISC"
+  "name": "angular2beta",
+  "version": "1.0.0",
+  "description": "test Angular 2 Beta",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.0",
+    "bootstrap": "^3.3.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.13",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.0",
+    "systemjs": "^0.19.9",
+    "zone.js": "^0.6.4"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "http-server": "^0.8.5",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "jasmine-sinon": "^0.4.0",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-sinon": "^1.0.4",
+    "karma-spec-reporter": "0.0.23",
+    "lite-server": "^1.3.1",
+    "sinon": "^1.17.2"
+  },
+  "scripts": {
+    "lite": "lite-server --port 3000",
+    "tests": "karma start",
+    "coverage": "http-server -c-1 -o -p 4000 ./coverage/*",
+    "start": "concurrent \"npm run tests\" \"npm run lite\" \"npm run coverage\""
+  },
+  "author": "Alberto de la Fuente",
+  "license": "ISC"
 }
